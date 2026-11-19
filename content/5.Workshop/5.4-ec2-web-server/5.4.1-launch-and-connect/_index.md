@@ -38,7 +38,7 @@ This is the implementation choice for subsequent sections, using the **ec2-user*
 
 Check costs and account benefits before launch; a Free tier label does not mean the entire lab is free. If t3.micro is unavailable to your account, agree on an alternative x86_64 instance type with the administrator before continuing.
 
-![](/images/54/ec21.png)
+![](/FCAJ_Worklog/images/54/ec21.png)
 
 
 ## Step 2: Create or select a key pair
@@ -50,7 +50,7 @@ Check costs and account benefits before launch; a Free tier label does not mean 
 
 Reuse an existing key pair only if you possess its matching private key. AWS does not allow downloading an existing key pair's private key again. Do not proceed without a key pair for this SSH method. Never upload the .pem file to Git, the workshop website, or screenshots.
 
-![](/images/54/ec23.png)
+![](/FCAJ_Worklog/images/54/ec23.png)
 
 
 ## Step 3: Select networking and the security group
@@ -67,7 +67,7 @@ Under **Network settings → Edit**, configure:
 
 Verify actual IDs, not just names. Do not create a new security group or allow SSH from 0.0.0.0/0. This step does not require an Elastic IP.
 
-![](/images/54/ec22.png)
+![](/FCAJ_Worklog/images/54/ec22.png)
 
 
 ## Step 4: Configure storage and security
@@ -81,10 +81,10 @@ Verify actual IDs, not just names. Do not create a new security group or allow S
 
 If the instance profile is missing, ask the administrator to check the profile, role, and listing/PassRole permissions. Do not substitute an arbitrary broadly privileged role. Specific S3 permissions are completed in 5.5.3.
 
-![](/images/54/ec24.png)
+![](/FCAJ_Worklog/images/54/ec24.png)
 
 
-![](/images/54/ec26.png)
+![](/FCAJ_Worklog/images/54/ec26.png)
 
 ## Step 5: Launch and verify the instance
 
@@ -96,7 +96,7 @@ If the instance profile is missing, ask the administrator to check the profile, 
 
 If no public IPv4 appears, check the launch configuration. Do not use the private IPv4 for direct SSH from the Internet. Do not test the website yet because no web service has been installed.
 
-![](/images/54/ec27.png)
+![](/FCAJ_Worklog/images/54/ec27.png)
 
 
 ## Step 6: Connect using SSH from your computer
@@ -130,7 +130,7 @@ hostname
 
 Expected results: user **ec2-user** and **Amazon Linux 2023**. Do not print metadata credentials for screenshots. Enter `exit` to end the SSH session.
 
-![](/images/54/ec28.png)
+![](/FCAJ_Worklog/images/54/ec28.png)
 
 ## Common issues
 

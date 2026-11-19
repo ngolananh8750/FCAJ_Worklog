@@ -31,7 +31,7 @@ EC2 automatically publishes standard CPU metrics to CloudWatch. Viewing this met
 6. Confirm **Instance state = Running** and record the **Instance ID**, beginning with `i-...`.
 7. If multiple instances share the Name tag, compare their VPC, subnet, and the ID provided by Member 2. Do not identify the instance by name alone.
 
-![](/images/55/ec2m1.png)
+![](/FCAJ_Worklog/images/55/ec2m1.png)
 
 
 ## Step 2: Preview CPU in EC2
@@ -42,7 +42,7 @@ EC2 automatically publishes standard CPU metrics to CloudWatch. Viewing this met
 4. Refresh and observe the data. Newly launched instances need time for data to appear; an empty graph does not mean CPU usage is zero.
 5. Keep Basic monitoring. If the Console offers Detailed monitoring, do not enable it for this section. If it was already enabled, coordinate with the EC2 operator before changing the setting.
 
-![](/images/55/ec2m2.png)
+![](/FCAJ_Worklog/images/55/ec2m2.png)
 
 
 ## Step 3: Select the metric in CloudWatch
@@ -77,7 +77,7 @@ Console labels may change slightly. Always verify **AWS/EC2**, **CPUUtilization*
 | Unit | Percent (%) |
 | Time range | 1 hour or 3 hours, including recent data |
 
-![](/images/55/ec2m3.png)
+![](/FCAJ_Worklog/images/55/ec2m3.png)
 
 
 ## Step 5: Read the data and record a baseline

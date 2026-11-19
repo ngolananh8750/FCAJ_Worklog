@@ -32,7 +32,7 @@ When reusing the bucket, verify **Properties → Bucket Versioning** and enable 
 5. Enter the agreed actual bucket name.
 6. Do not copy settings from a bucket outside the workshop.
 
-![](/images/55/b1.png)
+![](/FCAJ_Worklog/images/55/b1.png)
 
 
 
@@ -46,7 +46,7 @@ The EC2 application accesses S3 through its IAM role, and users download through
 
 Block Public Access does not replace IAM or automatically remove all authenticated or cross-account access. Policies still need appropriate restrictions in 5.5.3.
 
-![](/images/55/b2.png)
+![](/FCAJ_Worklog/images/55/b2.png)
 
 
 
@@ -63,7 +63,7 @@ Select **SSE-S3**, not SSE-KMS or DSSE-KMS. Do not create a dedicated KMS key. I
 
 Enable Versioning for the recovery exercise in 5.5.4. After first enabling it, wait 15 minutes before object writes or deletes.
 
-![](/images/55/b3.png)
+![](/FCAJ_Worklog/images/55/b3.png)
 
 
 
@@ -78,7 +78,7 @@ Enable Versioning for the recovery exercise in 5.5.4. After first enabling it, w
 
 If reusing a bucket with an existing policy, review the entire policy with the administrator before editing; do not delete it. HTTPS-only policy controls and EC2 permissions will be handled with access configuration without making the bucket public.
 
-![](/images/55/b4.png)
+![](/FCAJ_Worklog/images/55/b4.png)
 
 
 

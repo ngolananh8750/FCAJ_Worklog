@@ -95,9 +95,7 @@ Follow this order. EC2 is created in Section 5.4; testing S3 reads and writes re
 - The S3 gateway VPC endpoint has Available status and is associated with the correct route table.
 - The handover table contains actual IDs, and the information has been shared with Members 2, 3, and 4.
 
-**Overview screenshot placeholder:**
 
-<!-- Insert a network resource overview image here after completing the child sections. You may use the VPC Resource map for the components it displays; place security group, network ACL, and endpoint screenshots in their corresponding sections. -->
 
 Detailed procedure and result screenshots belong in each child section. Full connectivity and allow/deny testing takes place in Section 5.7 after the dependent resources are available.
 

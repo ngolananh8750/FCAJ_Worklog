@@ -31,7 +31,7 @@ Member 4 creates **workshop-web-01-cpu-high** and works with Member 2 to generat
 
 If this alarm name already exists, check its Instance ID and owner before editing. Do not overwrite another team's alarm.
 
-![](/images/55/m1.png)
+![](/FCAJ_Worklog/images/55/m1.png)
 
 ## Step 2: Set the condition
 
@@ -50,7 +50,7 @@ If this alarm name already exists, check its Instance ID and owner before editin
 
 With complete data, two CPU averages from 5-minute periods must breach the condition to satisfy 2/2. A brief spike is insufficient. State changes also depend on period boundaries, data delivery, and alarm evaluation; they are not immediate after starting the command.
 
-![](/images/55/m2.png)
+![](/FCAJ_Worklog/images/55/m2.png)
 
 ## Step 3: Configure actions and create the alarm
 
@@ -69,7 +69,7 @@ With complete data, two CPU averages from 5-minute periods must breach the condi
 
 INSUFFICIENT_DATA immediately after creation is not necessarily an error. If it persists, check the metric, Instance ID, Region, and recent data as in Section 5.6.1.
 
-![](/images/55/m3.png)
+![](/FCAJ_Worklog/images/55/m3.png)
 
 ### Optional: Receive email through SNS
 

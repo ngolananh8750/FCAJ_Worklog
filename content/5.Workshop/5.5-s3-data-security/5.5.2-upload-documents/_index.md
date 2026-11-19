@@ -40,10 +40,7 @@ Each file must be at most **5 MiB = 5 × 1024 × 1024 bytes**, matching the 5.4.
 
 On Windows, enable **View → Show → File name extensions** in File Explorer to avoid huong-dan.txt.txt. Record each file's size and keep the originals unchanged.
 
-**📸 Screenshot 01:** Local folder showing both filenames, types, and sizes.  
-**Filename:** 01-sample-documents.png.
 
-<!-- PASTE SCREENSHOT 01 DIRECTLY BELOW THIS LINE -->
 
 
 ## Step 2: Create the portal/ prefix

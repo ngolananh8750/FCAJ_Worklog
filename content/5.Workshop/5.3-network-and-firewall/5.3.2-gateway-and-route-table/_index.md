@@ -38,21 +38,21 @@ After this section, the subnet has a direct route to an internet gateway and bec
 4. Review and choose **Create internet gateway**.
 5. Record the Internet Gateway ID. A new gateway not attached to a VPC has **Detached** status; this is not an error.
 
-![](/images/005/igw1.png)
+![](/FCAJ_Worklog/images/005/igw1.png)
 
 
 ## Step 2: Attach the Internet Gateway to the VPC
 
 1. Select **igw-secure-web → Actions → Attach to VPC**.
-   ![](/images/005/igw2.png)
+   ![](/FCAJ_Worklog/images/005/igw2.png)
 2. Select **vpc-secure-web**, verifying the VPC ID.
-   ![](/images/005/igw3.png)
+   ![](/FCAJ_Worklog/images/005/igw3.png)
 3. Choose **Attach internet gateway**.
 4. Verify **Attached** status and the associated VPC.
 
 A VPC can have only one attached internet gateway at a time. If vpc-secure-web is missing from the list, check the Region and any existing attachment; do not detach another system's gateway to proceed.
 
-![](/images/005/igw4.png)
+![](/FCAJ_Worklog/images/005/igw4.png)
 
 
 ## Step 3: Create a Dedicated Route Table
@@ -66,7 +66,7 @@ A VPC can have only one attached internet gateway at a time. If vpc-secure-web i
 
 Keep the default main route table unchanged. Do not replace the main route table; associate only the workshop subnet with the new table.
 
-![](/images/005/rtb1.png)
+![](/FCAJ_Worklog/images/005/rtb1.png)
 
 ## Step 4: Add the Internet Route
 
@@ -83,7 +83,7 @@ Keep the default main route table unchanged. Do not replace the main route table
 
 **0.0.0.0/0 here is a routing destination**, not a rule allowing every port into EC2. Do not confuse it with opening SSH to the entire internet. Do not select a NAT gateway or add an IPv6 route in this IPv4 lab.
 
-![](/images/005/rtb2.png)
+![](/FCAJ_Worklog/images/005/rtb2.png)
 
 
 ## Step 5: Associate the Route Table with the Subnet
@@ -97,7 +97,7 @@ Keep the default main route table unchanged. Do not replace the main route table
 Adding a route to a table that the subnet does not use will not change the subnet's routing. Do not rely on the table name alone; verify its ID and association.
 
 
-![](/images/005/rtb3.png)
+![](/FCAJ_Worklog/images/005/rtb3.png)
 
 
 ## Step 6: Verify and Hand Over

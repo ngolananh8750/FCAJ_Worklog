@@ -57,7 +57,7 @@ To keep the deployment small, the architecture uses only one EC2 instance in one
 
 The system is deployed in one AWS Region. EC2 runs in a public subnet within the VPC; S3 and CloudWatch are services accessed by EC2 and are not located inside the public subnet.
 
-![Sơ đồ kiến trúc](/images/5/so_do_kien_truc_aws.drawio.png/?featherlight=false&width=90pc)
+![Sơ đồ kiến trúc](/FCAJ_Worklog/images/5/so_do_kien_truc_aws.drawio.png?featherlight=false&width=90pc)
 
 
 **Components and connections:**

@@ -23,20 +23,20 @@ Kiểm thử các ca **WEB-01–WEB-06** và **NET-01–NET-03** trong phần 5.
 
 1. Mở cửa sổ riêng tư/ẩn danh chưa đăng nhập.
 2. Truy cập URL HTTPS của website. Kết quả mong đợi: trang đăng nhập, không hiển thị danh sách tài liệu.
-   ![](/images/kiemthu/chualogin.png)
+   ![](/FCAJ_Worklog/images/kiemthu/chualogin.png)
 3. Dùng URL download của một tài liệu mẫu đã có: sao chép liên kết tải xuống từ một phiên đăng nhập riêng, rồi dán vào cửa sổ chưa đăng nhập. Không sao chép cookie hay token.
-   ![](/images/kiemthu/kiemthu1.png)
+   ![](/FCAJ_Worklog/images/kiemthu/kiemthu1.png)
 4. Kết quả mong đợi: chuyển về đăng nhập, không trả nội dung file. 
-    ![](/images/kiemthu/chualogin.png)
+    ![](/FCAJ_Worklog/images/kiemthu/chualogin.png)
 
 ## Bước 2: Kiểm tra đăng nhập — WEB-02
 
 1. Nhập tài khoản đúng và mật khẩu sai **một lần**, gửi form bình thường.
    
 2. Xác nhận bị từ chối và chưa xem được tài liệu.
-   ![](/images/kiemthu/dangnhapfail.png)
+   ![](/FCAJ_Worklog/images/kiemthu/dangnhapfail.png)
 3. Nhập thông tin đúng, xác nhận vào được trang danh sách tài liệu.
-    ![](/images/kiemthu/dangnhapthanhcong.png)
+    ![](/FCAJ_Worklog/images/kiemthu/dangnhapthanhcong.png)
 4. Không chụp mật khẩu hoặc cookie. Nếu gặp giới hạn tốc độ, đợi rồi thử lại; không coi lỗi giới hạn tốc độ là bằng chứng sai mật khẩu.
 
 
@@ -45,7 +45,7 @@ Kiểm thử các ca **WEB-01–WEB-06** và **NET-01–NET-03** trong phần 5.
 ## Bước 3: Kiểm tra upload hợp lệ — WEB-03
 
 1. Chuẩn bị `kiem-thu.txt` UTF-8 và `kiem-thu.pdf` PDF thật, mỗi file nhỏ hơn giới hạn. Không tạo PDF bằng cách đổi đuôi TXT.
-   ![](/images/kiemthu/2filekiemthu.png)
+   ![](/FCAJ_Worklog/images/kiemthu/2filekiemthu.png)
 2. Ghi dung lượng và SHA-256 bản gốc. Trên **PowerShell của máy cá nhân**, trong thư mục chứa file:
 
 ```powershell
@@ -54,16 +54,16 @@ Get-FileHash .\kiem-thu.txt -Algorithm SHA256
 Get-FileHash .\kiem-thu.pdf -Algorithm SHA256
 ```
     
-![](/images/kiemthu/buoc2.png)
+![](/FCAJ_Worklog/images/kiemthu/buoc2.png)
 
 3. Trên website đã đăng nhập, chọn từng file → Upload.
-    ![](/images/kiemthu/txt.png)
-    ![](/images/kiemthu/pdf.png)
+    ![](/FCAJ_Worklog/images/kiemthu/txt.png)
+    ![](/FCAJ_Worklog/images/kiemthu/pdf.png)
    
 4. Xác nhận upload thành công, file mới xuất hiện. Ứng dụng thêm tiền tố ngẫu nhiên vào tên; ghi lại **tên thực tế** và URL download.
-    ![](/images/kiemthu/upfilexong.png)
+    ![](/FCAJ_Worklog/images/kiemthu/upfilexong.png)
 5. Nhờ thành viên 3 đối chiếu object mới dưới `portal/` trong đúng bucket nếu cần xác nhận lưu trữ đầu cuối.
-   ![](/images/kiemthu/s3check.png)
+   ![](/FCAJ_Worklog/images/kiemthu/s3check.png)
 
 ## Bước 4: Kiểm tra file bị từ chối — WEB-04
 
@@ -86,9 +86,9 @@ File .exe ở đây chỉ chứa văn bản vô hại, không chạy file đó. 
 5. Đối chiếu danh sách website và object mới trên S3 theo thời gian thử để xác nhận không có object được tạo từ các lần bị từ chối.
 
 Ứng dụng có giới hạn file 5 MiB và Nginx có giới hạn request 6 MiB theo phần trước. Lỗi 413 do request quá lớn có thể đến từ Nginx; không coi mọi trường hợp từ chối là cùng một lớp kiểm tra.
-![qua-lon.txt](/images/kiemthu/1.png)
-![gia-pdf.pdf](/images/kiemthu/2.png)
-![khong-hop-le.exe](/images/kiemthu/4.png)
+![qua-lon.txt](/FCAJ_Worklog/images/kiemthu/1.png)
+![gia-pdf.pdf](/FCAJ_Worklog/images/kiemthu/2.png)
+![khong-hop-le.exe](/FCAJ_Worklog/images/kiemthu/4.png)
 
 
 
@@ -105,18 +105,18 @@ Get-FileHash 'C:\DUONG_DAN_THUC_TE\FILE_TAI_VE.txt' -Algorithm SHA256
 
 4. Pass khi hai cặp hash khớp và file mở được. Tên file có thể khác do tiền tố ngẫu nhiên; nội dung phải giữ nguyên.
 
-![](/images/kiemthu/test5.png)
+![](/FCAJ_Worklog/images/kiemthu/test5.png)
 
 ## Bước 6: Đăng xuất và thử truy cập lại — WEB-06
 
 1. Khi đang đăng nhập, lưu URL tải tài liệu, sau đó chọn **Log out**.
-   ![](/images/kiemthu/logout.png)
+   ![](/FCAJ_Worklog/images/kiemthu/logout.png)
 2. Dán lại URL download vào thanh địa chỉ của cùng trình duyệt và gửi yêu cầu mới.
-    ![](/images/kiemthu/kiemthu1.png)
+    ![](/FCAJ_Worklog/images/kiemthu/kiemthu1.png)
 3. Mở lại trang danh sách. Kỳ vọng cả hai yêu cầu đều cần đăng nhập lại.
-   ![](/images/kiemthu/chualogin.png)
+   ![](/FCAJ_Worklog/images/kiemthu/chualogin.png)
 4. Nút Back có thể hiển thị trang đã lưu trong lịch sử; phải Reload/gửi yêu cầu mới để kiểm tra phía máy chủ. File đã tải về máy trước đó không tự biến mất khi logout.
-   ![](/images/kiemthu/chualogin.png)
+   ![](/FCAJ_Worklog/images/kiemthu/chualogin.png)
 
 
 
@@ -184,11 +184,11 @@ Nếu deny không có hiệu lực, kiểm tra nguồn IP, số thứ tự và N
 
 **📸 Ảnh 09:** Rule deny và kết quả chặn 443. 
 
-![](/images/kiemthu/9.png)
+![](/FCAJ_Worklog/images/kiemthu/9.png)
 
 **📸 Ảnh 10:** Rule tạm đã xóa, 443 phục hồi và website hoạt động. 
 
-![](/images/kiemthu/10.png)
+![](/FCAJ_Worklog/images/kiemthu/10.png)
 
 ## Tổng hợp kết quả
 

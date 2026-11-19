@@ -54,7 +54,7 @@ Allow 80 for Nginx testing and HTTPS redirection. Restrict SSH to the administra
 5. Initially leave inbound rules empty and retain the default outbound rule; select **Create security group**. Add inbound rules immediately in the next step.
 6. Record the Security Group ID, which starts with `sg-`.
 
-![](/images/005/sg1.png)
+![](/FCAJ_Worklog/images/005/sg1.png)
 
 ## Step 3: Configure inbound rules
 
@@ -71,9 +71,9 @@ If the browser and SSH use different VPNs or proxies, My IP might not match the 
 **📸 Screenshot 02 — Capture before saving:** Edit inbound rules showing SSH from a /32 source and HTTPS from 0.0.0.0/0.  
 **Filename:** 02-inbound-rules-edit.png.
 
-![](/images/005/sg2.png)
+![](/FCAJ_Worklog/images/005/sg2.png)
 
-![](/images/005/sg4.png)
+![](/FCAJ_Worklog/images/005/sg4.png)
 
 
 ## Step 4: Verify outbound rules
@@ -90,7 +90,7 @@ This workshop retains the default IPv4 outbound rule so EC2 can download install
 
 This is a simplified lab choice and does not tightly restrict outgoing traffic. Allowing outbound traffic does not open additional inbound ports or grant S3 read/write permissions. Data permissions are controlled by the IAM role and bucket policy. The S3 Gateway Endpoint is created in 5.3.5; security groups do not replace routing configuration.
 
-![](/images/005/sg3.png)
+![](/FCAJ_Worklog/images/005/sg3.png)
 
 
 ## Step 5: Verify and hand over

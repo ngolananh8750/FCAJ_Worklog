@@ -11,6 +11,5 @@ pre: "<b>5.6.4. </b>"
 4. Open **CloudWatch → All alarms → workshop-web-01-cpu-high → Edit**. Add an **In alarm** notification to the topic and save. Keep Average > 80%, five minutes, and 2/2. Check CloudWatch publish permissions if the topic uses a custom policy.
 5. Run the bounded load test in 5.6.2. Compare timestamps in the dashboard, alarm history, and email. If the alarm was already in ALARM before SNS was attached, wait for OK before testing another transition.
 
-<!-- 📸 Insert dashboard, confirmed subscription, alarm action, and email screenshots. Hide email addresses. -->
 
 [CloudWatch and SNS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Notify_Users_Alarm_Changes.html)

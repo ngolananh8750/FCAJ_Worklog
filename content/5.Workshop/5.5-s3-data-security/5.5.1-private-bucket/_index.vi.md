@@ -32,7 +32,7 @@ Nếu dùng lại bucket, kiểm tra Versioning ở **Properties → Bucket Vers
 5. Nhập tên bucket thực tế đã thống nhất.
 6. Không sao chép cấu hình từ bucket không thuộc workshop.
 
-![](/images/55/b1.png)
+![](/FCAJ_Worklog/images/55/b1.png)
 
 
 ## Bước 2: Giữ bucket riêng tư
@@ -45,7 +45,7 @@ Website ở EC2 đọc/ghi S3 bằng IAM Role; người dùng tải tài liệu 
 
 Block Public Access không thay thế IAM và không tự loại bỏ mọi quyền truy cập có xác thực hoặc quyền liên tài khoản. Các policy vẫn phải giới hạn đúng phạm vi ở 5.5.3.
 
-![](/images/55/b2.png)
+![](/FCAJ_Worklog/images/55/b2.png)
 
 
 
@@ -62,7 +62,7 @@ Chọn **SSE-S3**, không chọn SSE-KMS hoặc DSSE-KMS. Không tạo khóa KMS
 
 Bật Versioning để thực hành phục hồi ở 5.5.4. Khi bật lần đầu, đợi 15 phút trước khi ghi hoặc xóa object.
 
-![](/images/55/b3.png)
+![](/FCAJ_Worklog/images/55/b3.png)
 
 
 
@@ -77,7 +77,7 @@ Bật Versioning để thực hành phục hồi ở 5.5.4. Khi bật lần đ�
 
 Nếu dùng lại bucket có policy, đọc toàn bộ policy với người quản trị trước khi sửa; không xóa policy hiện có. Policy chỉ cho phép HTTPS và quyền EC2 sẽ được xử lý cùng phần phân quyền, không làm bucket công khai.
 
-![](/images/55/b4.png)
+![](/FCAJ_Worklog/images/55/b4.png)
 
 
 ## Bước 5: Bàn giao và giới hạn kiểm tra

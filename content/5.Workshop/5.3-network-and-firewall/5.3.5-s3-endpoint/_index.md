@@ -42,7 +42,7 @@ Gateway endpoints have no additional usage charge; S3 and other resource charges
 4. Filter **Type = Gateway**, then select **com.amazonaws.ap-southeast-1.s3**.
 5. Confirm the Type is **Gateway**. Do not select Interface or the s3express service.
 
-![](/images/005/ep1.png)
+![](/FCAJ_Worklog/images/005/ep1.png)
 
 
 ## Step 2: Select the VPC and route table
@@ -54,7 +54,7 @@ Gateway endpoints have no additional usage charge; S3 and other resource charges
 
 Gateway endpoints use route table associations; they do not require a separate endpoint security group as interface endpoints do. If the page requests endpoint subnets/AZs and a security group, recheck the Type.
 
-![](/images/005/ep2.png)
+![](/FCAJ_Worklog/images/005/ep2.png)
 
 
 ## Step 3: Select a policy and create the endpoint
@@ -68,10 +68,10 @@ Full access is the endpoint's access policy; it **does not grant IAM permissions
 
 Before restricting the endpoint policy to only the document bucket later, check installation dependencies. Do not paste policies containing unresolved example bucket names or ARNs. Do not add an aws:SourceVpce-only bucket restriction at this stage either, as it can block administrative console access outside the endpoint.
 
-![](/images/005/ep3.png)
+![](/FCAJ_Worklog/images/005/ep3.png)
 
 
-![](/images/005/ep4.png)
+![](/FCAJ_Worklog/images/005/ep4.png)
 
 
 ## Step 4: Verify the automatically added S3 route
@@ -88,7 +88,7 @@ AWS adds the prefix list route when the route table is associated with the endpo
 
 If the S3 route is missing, open the endpoint's **Route tables** tab and check the association. Use **Actions → Manage route tables** to select rtb-web-public and save. Do not directly edit the AWS-managed endpoint route.
 
-![](/images/005/ep5.png)
+![](/FCAJ_Worklog/images/005/ep5.png)
 
 
 ## Step 5: Check firewall settings and hand over

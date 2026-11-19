@@ -23,27 +23,28 @@ Execute **WEB-01–WEB-06** and **NET-01–NET-03** from Section 5.7. Member 2 t
 
 1. Open a private/incognito window without an authenticated session.
 2. Open the HTTPS website. Expect a sign-in page without the document list.
+   ![](/FCAJ_Worklog/images/kiemthu/chualogin.png)
 3. Copy the download link for an existing sample document from a separate signed-in session and paste it into the unauthenticated window. Do not copy cookies or tokens.
+   ![](/FCAJ_Worklog/images/kiemthu/kiemthu1.png)
 4. Expect redirection to sign-in without document contents. If no document exists yet, complete Step 3 and return to this case.
+    ![](/FCAJ_Worklog/images/kiemthu/chualogin.png)
 
-**📸 Screenshot 01:** Authentication required before accessing documents. `01-auth-required.png`.
-
-<!-- INSERT SCREENSHOT 01 -->
 
 ## Step 2: Test sign-in — WEB-02
 
 1. Submit the correct username with a wrong password **once** through the normal form.
+   ![](/FCAJ_Worklog/images/kiemthu/dangnhapfail.png)
 2. Verify rejection and no document access.
 3. Submit correct credentials and verify access to the document list.
+   ![](/FCAJ_Worklog/images/kiemthu/dangnhapthanhcong.png)
 4. Do not capture passwords or cookies. If rate-limited, wait and retry; rate limiting is not evidence of incorrect-password handling.
 
-**📸 Screenshot 02:** Rejected and successful sign-in, using two images if needed. `02-login-results.png`.
 
-<!-- INSERT SCREENSHOT 02 -->
 
 ## Step 3: Test valid uploads — WEB-03
 
 1. Prepare UTF-8 `kiem-thu.txt` and a genuine `kiem-thu.pdf`, each below the limit. Renaming TXT to PDF does not create a PDF.
+    ![](/FCAJ_Worklog/images/kiemthu/2filekiemthu.png)
 2. Record original sizes and SHA-256 hashes. In **PowerShell on your computer**, from the sample directory:
 
 ```powershell
@@ -51,14 +52,17 @@ Get-Item .\kiem-thu.txt, .\kiem-thu.pdf | Select-Object Name, Length
 Get-FileHash .\kiem-thu.txt -Algorithm SHA256
 Get-FileHash .\kiem-thu.pdf -Algorithm SHA256
 ```
+![](/FCAJ_Worklog/images/kiemthu/buoc2.png)
 
 3. While signed in, select and upload each file.
+    ![](/FCAJ_Worklog/images/kiemthu/txt.png)
+    ![](/FCAJ_Worklog/images/kiemthu/pdf.png)
+   
 4. Confirm success and new list entries. The application adds a random filename prefix; record the **actual names** and download URLs.
+   ![](/FCAJ_Worklog/images/kiemthu/upfilexong.png)
 5. Ask Member 3 to correlate the new objects under `portal/` in the correct bucket if end-to-end storage confirmation is needed.
+   ![](/FCAJ_Worklog/images/kiemthu/s3check.png)
 
-**📸 Screenshot 03:** Document list with the new uploads. `03-valid-uploads.png`.
-
-<!-- INSERT SCREENSHOT 03 -->
 
 ## Step 4: Test rejected files — WEB-04
 
@@ -81,10 +85,10 @@ The .exe contains harmless text; do not execute it. `qua-lon.txt` contains ASCII
 5. Correlate the website list and new S3 objects with test timestamps to confirm that the rejected attempts created no objects.
 
 The application file limit is 5 MiB; Nginx's request limit is 6 MiB as previously configured. A 413 for a larger request can originate from Nginx. Do not attribute every rejection to the same layer.
+![qua-lon.txt](/FCAJ_Worklog/images/kiemthu/1.png)
+![gia-pdf.pdf](/FCAJ_Worklog/images/kiemthu/2.png)
+![khong-hop-le.exe](/FCAJ_Worklog/images/kiemthu/4.png)
 
-**📸 Screenshot 04:** Rejection messages and test file sizes; multiple images may be used. `04-invalid-uploads.png`.
-
-<!-- INSERT SCREENSHOT 04 -->
 
 ## Step 5: Download and compare — WEB-05
 
@@ -98,21 +102,20 @@ Get-FileHash 'C:\ACTUAL_PATH\DOWNLOADED_FILE.txt' -Algorithm SHA256
 
 4. Pass when both hash pairs match and the files open. Random filename prefixes may change names, but contents must remain identical.
 
-**📸 Screenshot 05:** Matching original/downloaded SHA-256 hashes. `05-download-hash.png`.
-
-<!-- INSERT SCREENSHOT 05 -->
+![](/FCAJ_Worklog/images/kiemthu/test5.png)
 
 ## Step 6: Sign out and request documents again — WEB-06
 
 1. Save a document download URL while signed in, then select **Log out**.
+   ![](/FCAJ_Worklog/images/kiemthu/logout.png)
 2. Paste the URL into the same browser's address bar and issue a new request.
+     ![](/FCAJ_Worklog/images/kiemthu/kiemthu1.png)
 3. Reopen the document list. Both requests must require authentication again.
+   ![](/FCAJ_Worklog/images/kiemthu/chualogin.png)
 4. Back may show a cached page; reload or issue a new request to test the server. Previously downloaded local files do not disappear on logout.
+   ![](/FCAJ_Worklog/images/kiemthu/chualogin.png)
 5. Also check the download URL in an unauthenticated private window to finish WEB-01 if still pending.
 
-**📸 Screenshot 06:** A new post-logout document request requires sign-in. `06-logout-protection.png`.
-
-<!-- INSERT SCREENSHOT 06 -->
 
 ## Step 7: Test SSH from allowed and blocked sources — NET-01
 
@@ -129,9 +132,7 @@ Test-NetConnection -ComputerName PUBLIC_IPV4 -Port 22
 
 SSH `Permission denied (publickey)` indicates that SSH was reached but key authentication failed; it is not proof of TCP filtering. Without a second source, mark **Not tested**. This case tests combined network controls; do not attribute blocking solely to SG if the NACL also blocks that source.
 
-**📸 Screenshot 07:** Both source results and /32 rules. `07-ssh-allow-deny.png`.
 
-<!-- INSERT SCREENSHOT 07 -->
 
 ## Step 8: Test HTTPS and the backend — NET-02
 
@@ -152,9 +153,7 @@ Verify Gunicorn binds only to **127.0.0.1:8000**, Nginx listens on 443, and none
 
 Run `curl.exe -I http://PUBLIC_IPV4/` on Windows or `curl -I http://PUBLIC_IPV4/` on Linux/macOS. Expect 301 and a Location pointing to HTTPS. Check port 81 against 5.3.6.
 
-**📸 Screenshot 08:** 443/8000 results, backend socket, and relevant SGs. `08-https-backend.png`.
 
-<!-- INSERT SCREENSHOT 08 -->
 
 ## Step 9: Perform a controlled NACL test — NET-03
 
@@ -179,30 +178,23 @@ Temporarily block **HTTPS from only the test computer's IP**, preserving SSH and
 
 If the deny is ineffective, check the source IP, rule order, and NACL association. Do not expand the deny to 0.0.0.0/0. Even when the test fails, remove the temporary rule before further troubleshooting.
 
-**📸 Screenshot 09:** Temporary deny rule and blocked 443 result. `09-nacl-deny.png`.
+![](/FCAJ_Worklog/images/kiemthu/9.png)
 
-<!-- INSERT SCREENSHOT 09 -->
-
-**📸 Screenshot 10:** Temporary rule removed, restored 443, and working website. `10-nacl-restored.png`.
-
-<!-- INSERT SCREENSHOT 10 -->
+![](/FCAJ_Worklog/images/kiemthu/10.png)
 
 ## Results
 
 | ID | Required outcome | Actual status |
 | --- | --- | --- |
-| WEB-01 | Unauthenticated users cannot read documents | Not tested |
-| WEB-02 | Wrong credentials rejected; correct sign-in succeeds | Not tested |
-| WEB-03 | Valid TXT/PDF uploads succeed | Not tested |
-| WEB-04 | Invalid uploads rejected without objects being created | Not tested |
-| WEB-05 | Downloads match original SHA-256 | Not tested |
-| WEB-06 | New post-logout requests require sign-in | Not tested |
-| NET-01 | SSH allow/deny matches source restrictions | Not tested |
-| NET-02 | HTTPS works; backend is not public | Not tested |
-| NET-03 | NACL blocks and connectivity recovers after rollback | Not tested |
+| WEB-01 | Unauthenticated users cannot read documents | Tested |
+| WEB-02 | Wrong credentials rejected; correct sign-in succeeds | Tested |
+| WEB-03 | Valid TXT/PDF uploads succeed | Tested |
+| WEB-04 | Invalid uploads rejected without objects being created | Tested |
+| WEB-05 | Downloads match original SHA-256 | Tested |
+| WEB-06 | New post-logout requests require sign-in | Tested |
+| NET-01 | SSH allow/deny matches source restrictions | Tested |
+| NET-02 | HTTPS works; backend is not public | Tested |
+| NET-03 | NACL blocks and connectivity recovers after rollback | Tested |
 
-Enter actual Pass/Fail results with tester, timestamp, and evidence references using Section 5.7's template. There are **10 screenshot locations**, each of which may contain multiple images. Distinguish TLS, application, SSH authentication, and network errors; do not broaden permissions to bypass causes.
-
-Completion requires evidence for the required cases, rollback of temporary rules, and a working website. Delete only locally created test files after retaining evidence; disposable S3 objects will be handled during cleanup.
 
 Continue: [5.7.2. Verify S3 Access Permissions and Monitoring Results](../5.7.2-s3-and-monitoring/).

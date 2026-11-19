@@ -51,7 +51,7 @@ Trên Windows, bật **View → Show → File name extensions** trong File Explo
 
 S3 lưu object theo key; “folder” là cách Console biểu diễn prefix. Thao tác Create folder có thể tạo object đánh dấu kích thước 0 byte với key portal/. Đây không phải tài liệu mẫu và ứng dụng không hiển thị nó như một tệp tải xuống.
 
-![](/images/55/ud1.png)
+![](/FCAJ_Worklog/images/55/ud1.png)
 
 
 ## Bước 3: Tải tệp lên S3

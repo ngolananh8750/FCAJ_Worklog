@@ -95,10 +95,6 @@ Thực hiện theo thứ tự trên. EC2 được tạo ở phần 5.4; kiểm t
 - S3 Gateway VPC Endpoint ở trạng thái Available và liên kết với đúng Route Table.
 - Bảng bàn giao được cập nhật ID thực tế; thông tin đã được chia sẻ với thành viên 2, 3 và 4.
 
-**Vị trí chèn ảnh tổng hợp:**
-
-<!-- Chèn ảnh tổng quan tài nguyên mạng tại đây sau khi hoàn thành các mục con. Có thể dùng VPC Resource map cho các thành phần hiển thị; ảnh Security Group, Network ACL và endpoint đặt tại mục tương ứng. -->
-
 Ảnh thao tác và kết quả chi tiết được chèn ở từng mục con. Kiểm thử kết nối và allow/deny đầy đủ được thực hiện sau khi có các tài nguyên phụ thuộc, tại phần 5.7.
 
 ## Nội dung

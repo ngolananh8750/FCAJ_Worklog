@@ -48,7 +48,7 @@ sudo chmod 644 /etc/nginx/tls/portal.crt
 sudo openssl x509 -in /etc/nginx/tls/portal.crt -noout -dates -fingerprint -sha256 -ext subjectAltName
 ```
 
-![](/images/54/https1.png)
+![](/FCAJ_Worklog/images/54/https1.png)
 
 
 ## Step 2: Configure HTTPS and the reverse proxy
@@ -105,7 +105,7 @@ sudo nginx -t && sudo systemctl reload nginx
 sudo ss -lntp
 ```
 
-![](/images/54/https2.png)
+![](/FCAJ_Worklog/images/54/https2.png)
 
 ## Step 3: Verify TLS locally on EC2
 
@@ -121,7 +121,7 @@ sudo curl --noproxy '*' --cacert /etc/nginx/tls/portal.crt \
   --resolve "$PORTAL_IP:443:127.0.0.1" -I "https://$PORTAL_IP/"
 ```
 
-![](/images/54/https3.png)
+![](/FCAJ_Worklog/images/54/https3.png)
 
 ## Step 4: Test from your local computer
 
@@ -155,7 +155,7 @@ Open Developer Tools (F12) → Application/Storage → Cookies. **portal_session
 
 Log in with the website account, not an IAM user. If login leads to 503 Storage unavailable, check S3 permissions in 5.5; do not disable Secure or change TLS to resolve data-access failures.
 
-![](/images/54/https4.png)
+![](/FCAJ_Worklog/images/54/https4.png)
 
 ## Step 6: Test the session lifecycle
 

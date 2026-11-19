@@ -24,7 +24,7 @@ On **your local computer**, place the ZIP beside YOUR_KEY_PAIR.pem, replace PUBL
 scp -i "YOUR_KEY_PAIR.pem" document-portal.zip ec2-user@PUBLIC_IPV4:~/
 ```
 
-![](/images/54/deploy01.png)
+![](/FCAJ_Worklog/images/54/deploy01.png)
 ## Step 2: Install the runtime and service account
 
 Run subsequent commands **on EC2 through SSH**. Use a fresh installation directory. If portal already exists, check `id portal` and skip useradd; do not delete accounts or overwrite an existing application.
@@ -43,7 +43,7 @@ sudo /opt/document-portal/.venv/bin/pip check
 sudo /opt/document-portal/.venv/bin/pip freeze | sudo tee /opt/document-portal/requirements.lock.txt > /dev/null
 ```
 
-![](/images/54/deploy02.png)
+![](/FCAJ_Worklog/images/54/deploy02.png)
 
 ## Step 3: Configure the website account
 
@@ -59,7 +59,7 @@ sudo chmod 640 /etc/document-portal/config.json
 sudo -u portal test -r /etc/document-portal/config.json && echo "Config readable by portal"
 ```
 
-![](/images/54/deploy03.png)
+![](/FCAJ_Worklog/images/54/deploy03.png)
 
 ## Step 4: Start Gunicorn with systemd
 
@@ -77,7 +77,7 @@ curl -i http://127.0.0.1:8000/healthz
 curl -I http://127.0.0.1:8000/
 ```
 
-![](/images/54/deploy04.png)
+![](/FCAJ_Worklog/images/54/deploy04.png)
 
 ## Step 5: Inspect logs and restart
 
@@ -92,7 +92,7 @@ systemctl is-active document-portal
 systemctl is-enabled document-portal
 ```
 
-![](/images/54/deploy05.png)
+![](/FCAJ_Worklog/images/54/deploy05.png)
 ## Step 6: Test features after HTTPS and S3 are ready
 
 Session cookies always use Secure, HttpOnly, and SameSite=Lax. **Do not disable Secure to log in over HTTP.** This section stops at service checks; finish 5.4.4 and open https://server-address/login. Nginx must forward to 127.0.0.1:8000 and set client_max_body_size 6m for multipart overhead. The application separately limits file contents to **5 MiB = 5 × 1024 × 1024 bytes** (the lab's 5 MB convention).

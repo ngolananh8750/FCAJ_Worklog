@@ -56,7 +56,7 @@ The script reads the configured bucket, requires instance-profile credentials, a
 4. Timeouts, DNS errors, missing credentials, or STS failures are not AccessDenied. STS uses the existing HTTPS Internet path, not the S3 Gateway Endpoint.
 5. On FAIL, stop and review all permissions. Do not change the script's expected outcome. Retain remaining test objects for administrator cleanup in 5.8.
 
-![](/images/kiemthu/s302.png)
+![](/FCAJ_Worklog/images/kiemthu/s302.png)
 
 ## Step 3: Test anonymous access — S3-03
 
@@ -68,14 +68,14 @@ The script reads the configured bucket, requires instance-profile credentials, a
 
 Presigned URLs grant temporary access; successfully opening one does not imply a public bucket. Authenticated website access and anonymous S3 access are different flows.
 
-![](/images/kiemthu/s303.png)
+![](/FCAJ_Worklog/images/kiemthu/s303.png)
 
 ## Step 4: Verify storage security — S3-04
 
 1. Under bucket **Permissions**, verify all four **Block Public Access** settings and **Object Ownership = Bucket owner enforced**, with ACLs disabled.
-    ![](/images/kiemthu/41.png)
-   ![](/images/kiemthu/42.png)
-   ![](/images/kiemthu/43.png)
+    ![](/FCAJ_Worklog/images/kiemthu/41.png)
+   ![](/FCAJ_Worklog/images/kiemthu/42.png)
+   ![](/FCAJ_Worklog/images/kiemthu/43.png)
 2. Review the HTTPS-only bucket policy from 5.5.3. Do not remove it to bypass errors.
 3. Under **Properties → Default encryption**, verify **SSE-S3**.
 4. Select an object uploaded through the website in 5.7.1 → **Properties → Server-side encryption**, and verify SSE-S3 on that object. Bucket defaults do not replace inspection of the actual object.
@@ -94,7 +94,7 @@ Presigned URLs grant temporary access; successfully opening one does not imply a
 
 This is **routing configuration verification combined with an EC2 S3 test**, not a per-request traffic trace. S3 DNS may return public IPs even when routing uses a Gateway Endpoint. A successful laptop download or traceroute alone is insufficient evidence. Do not detach routes/endpoints or add SourceVpce deny policies just for this test.
 
-![](/images/kiemthu/s304.png)
+![](/FCAJ_Worklog/images/kiemthu/s304.png)
 
 ## Step 6: Verify CPU metrics and alarms — MON-01, MON-02
 
@@ -108,8 +108,8 @@ This is **routing configuration verification combined with an EC2 S3 test**, not
 Current OK alone does not establish that ALARM was tested. Manual SetAlarmState does not prove a CPU breach. INSUFFICIENT_DATA is not a healthy state. Finish by confirming the load has stopped and the website works.
 
 **📸 Screenshot :** Correct CPU metric, alarm settings, and ALARM → OK history. 
-![](/images/55/ec2m2.png)
-![](/images/kiemthu/mon02.png)
+![](/FCAJ_Worklog/images/55/ec2m2.png)
+![](/FCAJ_Worklog/images/kiemthu/mon02.png)
 
 ## Step 7: Verify new application logs — MON-03
 
@@ -129,7 +129,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
 
 A running agent or existing old logs is insufficient: find **new events matching this test**. If absent, check the local file, agent configuration, log-writing permissions, and HTTPS connectivity to CloudWatch Logs as in 5.6.3. Making the S3 bucket public cannot fix log delivery.
 
-**📸 Screenshot 08:** New events in the correct stream with local evidence for comparison. ![](/images/kiemthu/mon3.png)
+**📸 Screenshot 08:** New events in the correct stream with local evidence for comparison. ![](/FCAJ_Worklog/images/kiemthu/mon3.png)
 ## Results and troubleshooting
 
 | ID | Criteria | Actual status |

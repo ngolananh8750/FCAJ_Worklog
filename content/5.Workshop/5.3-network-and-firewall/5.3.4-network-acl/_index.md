@@ -33,7 +33,7 @@ Network ACLs (NACLs) are stateless: requests and responses must both be permitte
 4. Select **Create network ACL** and record its `acl-...` ID.
 5. Do not associate a subnet yet. If the NACL already exists, verify its ID/VPC and inspect it before reuse.
 
-![](/images/005/nacl1.png)
+![](/FCAJ_Worklog/images/005/nacl1.png)
 
 
 ## Step 2: Configure inbound rules
@@ -56,7 +56,7 @@ Rule 130 permits responses to ephemeral ports when EC2 initiates outgoing connec
 
 Retain the `*` rule; do not add an All traffic ALLOW rule ahead of these entries. This workshop does not require IPv6 rules.
 
-![](/images/005/nacl2.png)
+![](/FCAJ_Worklog/images/005/nacl2.png)
 
 
 ## Step 3: Configure outbound rules
@@ -72,7 +72,7 @@ Select **Outbound rules → Edit outbound rules → Add new rule**, enter the ta
 Outbound 80/443 supports package downloads and HTTP/HTTPS service calls; outbound 80 does not make the website accept HTTP connections. Rule 110 permits SSH/HTTPS responses to clients' ephemeral ports. Outbound port 22 is not a substitute for SSH response traffic.
 
 
-![](/images/005/nacl3.png)
+![](/FCAJ_Worklog/images/005/nacl3.png)
 
 
 ## Step 4: Associate the public subnet
@@ -85,7 +85,7 @@ Outbound 80/443 supports package downloads and HTTP/HTTPS service calls; outboun
 
 A subnet uses one NACL at a time; the new association replaces the previous one. Do not modify the default NACL shared by other subnets.
 
-![](/images/005/nacl4.png)
+![](/FCAJ_Worklog/images/005/nacl4.png)
 
 
 ## Step 5: Verify and hand over

@@ -33,7 +33,7 @@ Confirm ec2-user and Amazon Linux 2023. The upgrade command updates packages wit
 
 If the update requires a reboot, run `sudo reboot`, wait for readiness, and reconnect through SSH. A reboot disconnects SSH; it does not require creating another EC2 instance.
 
-![](/images/54/inx1.png)
+![](/FCAJ_Worklog/images/54/inx1.png)
 
 
 ## Step 2: Install Nginx
@@ -48,7 +48,7 @@ The output should show the Nginx version and installed package. Record the actua
 
 This section installs Nginx only. Install the application runtime and libraries according to the source code in 5.4.3, avoiding unused software stacks.
 
-![](/images/54/inx2.png)
+![](/FCAJ_Worklog/images/54/inx2.png)
 
 ## Step 3: Validate configuration and start the service
 
@@ -69,7 +69,7 @@ Expected results: **active** and **enabled**. Active means the service is runnin
 
 If nginx -t reports an error, fix the indicated file/line before starting or reloading. Do not ignore the error and continue.
 
-![](/images/54/inx3.png)
+![](/FCAJ_Worklog/images/54/inx3.png)
 
 
 ## Step 4: Test HTTP locally on EC2
@@ -84,7 +84,7 @@ With the package's default configuration, expect **HTTP 200**, HTML content, and
 
 HTTP is used here only for local server testing. TLS is not configured, so https://PUBLIC_IPV4 is not expected to work yet. A successful localhost request does not prove Internet access to the website.
 
-![](/images/54/inx4.png)
+![](/FCAJ_Worklog/images/54/inx4.png)
 
 
 ## Step 5: View the default page through an SSH tunnel
@@ -159,6 +159,3 @@ Continue to [5.4.3. Implement Login and Document Upload/Download](../5.4.3-docum
 - [Nginx beginner guide](https://nginx.org/en/docs/beginners_guide.html)
 - [Nginx command-line parameters](https://nginx.org/en/docs/switches.html)
 
-**Test from your computer:** Open `http://PUBLIC_IPV4/` to see the default Nginx page on port 80. Run the 80/81 checks in 5.3.6. Sign in after enabling HTTPS in 5.4.4.
-
-<!-- 📸 Insert the Nginx page accessed through its public IPv4 address. -->

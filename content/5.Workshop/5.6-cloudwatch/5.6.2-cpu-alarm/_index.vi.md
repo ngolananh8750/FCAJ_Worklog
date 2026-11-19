@@ -30,7 +30,7 @@ Thành viên 4 tạo **workshop-web-01-cpu-high** và phối hợp với thành 
 
 Nếu alarm cùng tên đã tồn tại, kiểm tra Instance ID và người quản lý trước khi sửa; không ghi đè alarm của nhóm khác.
 
-![](/images/55/m1.png)
+![](/FCAJ_Worklog/images/55/m1.png)
 
 ## Bước 2: Đặt điều kiện
 
@@ -49,7 +49,7 @@ Nếu alarm cùng tên đã tồn tại, kiểm tra Instance ID và người qu�
 
 Hai điểm CPU trung bình theo chu kỳ 5 phút phải vi phạm điều kiện để đáp ứng cấu hình 2/2 khi dữ liệu đầy đủ. Một đỉnh CPU vài giây không đủ. Trạng thái không đổi tức thì sau khi chạy lệnh; còn phụ thuộc thời điểm chu kỳ, dữ liệu gửi về và đánh giá alarm.
 
-![](/images/55/m2.png)
+![](/FCAJ_Worklog/images/55/m2.png)
 
 ## Bước 3: Cấu hình hành động và tạo alarm
 
@@ -68,7 +68,7 @@ Hai điểm CPU trung bình theo chu kỳ 5 phút phải vi phạm điều kiệ
 
 INSUFFICIENT_DATA lúc mới tạo không nhất thiết là lỗi. Nếu kéo dài, kiểm tra metric, Instance ID, Region và dữ liệu mới như phần 5.6.1.
 
-![](/images/55/m3.png)
+![](/FCAJ_Worklog/images/55/m3.png)
 
 ### Tùy chọn: Nhận email qua SNS
 

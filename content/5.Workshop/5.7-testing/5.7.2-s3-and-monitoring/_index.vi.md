@@ -56,7 +56,7 @@ Script đọc tên bucket từ cấu hình, yêu cầu credentials đến từ i
 4. Timeout, lỗi DNS, thiếu credentials hoặc lỗi STS không phải AccessDenied. STS đi qua kết nối HTTPS Internet hiện có, không qua S3 Gateway Endpoint.
 5. Nếu có FAIL, dừng để kiểm tra toàn bộ quyền; không sửa script để đổi kết quả mong đợi. Lưu object thử còn lại để quản trị dọn ở 5.8.
 
-![](/images/kiemthu/s302.png)
+![](/FCAJ_Worklog/images/kiemthu/s302.png)
 
 ## Bước 3: Kiểm tra truy cập ẩn danh — S3-03
 
@@ -70,14 +70,14 @@ Presigned URL cấp quyền tạm thời; mở được nó không có nghĩa bu
 
 **📸 Ảnh :** Object mẫu và truy cập URL không ký bị AccessDenied. 
 
-![](/images/kiemthu/s303.png)
+![](/FCAJ_Worklog/images/kiemthu/s303.png)
 
 ## Bước 4: Kiểm tra bảo mật lưu trữ — S3-04
 
 1. Mở bucket → **Permissions**: xác nhận cả bốn mục **Block Public Access** bật và **Object Ownership = Bucket owner enforced**, ACLs disabled.
-   ![](/images/kiemthu/41.png)
-   ![](/images/kiemthu/42.png)
-   ![](/images/kiemthu/43.png)
+   ![](/FCAJ_Worklog/images/kiemthu/41.png)
+   ![](/FCAJ_Worklog/images/kiemthu/42.png)
+   ![](/FCAJ_Worklog/images/kiemthu/43.png)
 2. Xem bucket policy HTTPS-only đã cấu hình ở 5.5.3; không xóa policy để vượt lỗi.
 3. Mở **Properties → Default encryption**: xác nhận **SSE-S3**.
 4. Mở object được website tải lên ở 5.7.1 → **Properties → Server-side encryption**: kiểm tra SSE-S3 trên chính object. Mã hóa mặc định của bucket không thay thế kiểm tra object thực tế.
@@ -95,7 +95,7 @@ Presigned URL cấp quyền tạm thời; mở được nó không có nghĩa bu
 
 Kết quả ở đây là **kiểm tra cấu hình định tuyến kết hợp thử S3 từ EC2**, không phải bản ghi đường đi của từng request. DNS S3 có thể trả IP công cộng dù route đi qua Gateway Endpoint. Không dùng tải thành công từ laptop hoặc traceroute làm bằng chứng duy nhất. Không tháo route/endpoint hay thêm Deny theo SourceVpce chỉ để thử ở mục này.
 
-![](/images/kiemthu/s304.png)
+![](/FCAJ_Worklog/images/kiemthu/s304.png)
 
 
 ## Bước 6: Kiểm tra CPU và cảnh báo — MON-01, MON-02
@@ -110,8 +110,8 @@ Kết quả ở đây là **kiểm tra cấu hình định tuyến kết hợp t
 OK hiện tại không chứng minh đã từng kiểm thử ALARM. SetAlarmState thủ công không chứng minh CPU vượt ngưỡng. INSUFFICIENT_DATA không phải trạng thái hệ thống khỏe. Kết thúc phải xác nhận tải đã dừng và website hoạt động.
 
 **📸 Ảnh :** CPU đúng máy, cấu hình alarm và lịch sử ALARM → OK. 
-![](/images/55/ec2m2.png)
-![](/images/kiemthu/mon02.png)
+![](/FCAJ_Worklog/images/55/ec2m2.png)
+![](/FCAJ_Worklog/images/kiemthu/mon02.png)
 ## Bước 7: Kiểm tra log mới — MON-03
 
 1. Ghi thời điểm bắt đầu. Trên website HTTPS, đăng nhập sai một lần, đăng nhập đúng, upload/download tài liệu mẫu và logout. Không tạo nhiều lần sai vì giới hạn tốc độ.
@@ -131,7 +131,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
 Agent running hoặc log cũ có sẵn chưa đủ: phải thấy **sự kiện mới khớp thao tác lần này**. Nếu chưa thấy, kiểm tra file local, cấu hình Agent, quyền ghi log và kết nối HTTPS đến CloudWatch Logs theo 5.6.3; không mở bucket công khai để xử lý lỗi log.
 
 **📸 Ảnh 08:** Sự kiện mới trong đúng stream, cùng bằng chứng local để đối chiếu. 
-![](/images/kiemthu/mon3.png)
+![](/FCAJ_Worklog/images/kiemthu/mon3.png)
 
 ## Tổng hợp và xử lý lỗi
 

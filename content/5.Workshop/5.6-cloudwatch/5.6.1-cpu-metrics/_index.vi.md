@@ -31,7 +31,7 @@ EC2 tự gửi chỉ số CPU tiêu chuẩn đến CloudWatch. Không cần thê
 6. Kiểm tra **Instance state = Running** và ghi lại **Instance ID** dạng `i-...`.
 7. Nếu có nhiều máy cùng Name tag, đối chiếu VPC, subnet và ID do thành viên 2 bàn giao; không chọn chỉ dựa vào tên.
 
-![](/images/55/ec2m1.png)
+![](/FCAJ_Worklog/images/55/ec2m1.png)
 
 
 ## Bước 2: Xem nhanh CPU trên EC2
@@ -42,7 +42,7 @@ EC2 tự gửi chỉ số CPU tiêu chuẩn đến CloudWatch. Không cần thê
 4. Làm mới biểu đồ và quan sát dữ liệu. Máy vừa khởi tạo cần thời gian để dữ liệu xuất hiện; không coi biểu đồ trống là CPU bằng 0.
 5. Giữ Basic monitoring. Nếu Console mời bật Detailed monitoring, không bật trong bài này. Nếu trước đó đã bật, phối hợp với người quản lý EC2 trước khi thay đổi cấu hình.
 
-![](/images/55/ec2m2.png)
+![](/FCAJ_Worklog/images/55/ec2m2.png)
 
 
 ## Bước 3: Chọn metric trong CloudWatch
@@ -77,7 +77,7 @@ Tên nhãn Console có thể thay đổi nhẹ. Luôn kiểm tra đủ ba thông
 | Unit | Percent (%) |
 | Time range | 1 hour hoặc 3 hours, có dữ liệu mới |
 
-![](/images/55/ec2m3.png)
+![](/FCAJ_Worklog/images/55/ec2m3.png)
 
 
 

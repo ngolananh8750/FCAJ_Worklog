@@ -88,7 +88,7 @@ Thực hiện theo thứ tự trên. Phần 5.4.3 chuẩn bị ứng dụng; ho�
 | Tích hợp dữ liệu | Upload/download hoạt động sau khi bucket và quyền ở 5.5 hoàn tất |
 | Bàn giao | Instance ID, địa chỉ truy cập, role/profile và vị trí log; không bàn giao bí mật trong tài liệu công khai |
 
-![](/images/54/ec2tong.png)
+![](/FCAJ_Worklog/images/54/ec2tong.png)
 
 
 Ảnh thao tác chi tiết sẽ được đặt tại từng mục con. Giữ quy mô một EC2 cho bài lab; theo dõi thời gian sử dụng và dọn dẹp ở 5.8. Không mặc định EC2, EBS và Public IPv4 đều miễn phí.

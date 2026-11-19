@@ -24,7 +24,7 @@ Trên **máy cá nhân**, đặt ZIP cạnh YOUR_KEY_PAIR.pem, thay PUBLIC_IPV4 
 scp -i "YOUR_KEY_PAIR.pem" document-portal.zip ec2-user@PUBLIC_IPV4:~/
 ```
 
-![](/images/54/deploy01.png)
+![](/FCAJ_Worklog/images/54/deploy01.png)
 
 ## Bước 2: Cài môi trường và tài khoản dịch vụ
 
@@ -44,7 +44,7 @@ sudo /opt/document-portal/.venv/bin/pip check
 sudo /opt/document-portal/.venv/bin/pip freeze | sudo tee /opt/document-portal/requirements.lock.txt > /dev/null
 ```
 
-![](/images/54/deploy02.png)
+![](/FCAJ_Worklog/images/54/deploy02.png)
 
 ## Bước 3: Tạo cấu hình và tài khoản website
 
@@ -60,7 +60,7 @@ sudo chmod 640 /etc/document-portal/config.json
 sudo -u portal test -r /etc/document-portal/config.json && echo "Config readable by portal"
 ```
 
-![](/images/54/deploy03.png)
+![](/FCAJ_Worklog/images/54/deploy03.png)
 
 ## Bước 4: Khởi động Gunicorn bằng systemd
 
@@ -78,7 +78,7 @@ curl -i http://127.0.0.1:8000/healthz
 curl -I http://127.0.0.1:8000/
 ```
 
-![](/images/54/deploy04.png)
+![](/FCAJ_Worklog/images/54/deploy04.png)
 
 ## Bước 5: Kiểm tra log và khởi động lại
 
@@ -93,7 +93,7 @@ systemctl is-active document-portal
 systemctl is-enabled document-portal
 ```
 
-![](/images/54/deploy05.png)
+![](/FCAJ_Worklog/images/54/deploy05.png)
 
 ## Bước 6: Kiểm thử chức năng sau khi có HTTPS và S3
 

@@ -43,7 +43,7 @@ Tạo VPC **vpc-secure-web** và subnet **subnet-web-public** để chuẩn bị
 
 
 
-![vpc1](/images/005/vpc1.png/)
+![vpc1](/FCAJ_Worklog/images/005/vpc1.png)
 
 
 ## Bước 2: Tạo VPC
@@ -59,14 +59,14 @@ Tạo VPC **vpc-secure-web** và subnet **subnet-web-public** để chuẩn bị
 Dùng **VPC only** để thực hiện riêng từng thành phần theo mục lục; không dùng trình tạo tự động VPC and more trong hướng dẫn này.
 
 
-![vpc2](/images/005/vpc2.png/)
+![vpc2](/FCAJ_Worklog/images/005/vpc2.png)
 
 
 1. Chọn **Create VPC**.
 2. Mở VPC vừa tạo, kiểm tra trạng thái **Available** và CIDR.
 3.  Sao chép **VPC ID** thực tế vào bảng bàn giao.
 
-![vpc3](/images/005/vpc3.png/)
+![vpc3](/FCAJ_Worklog/images/005/vpc3.png)
 
 
 ## Bước 3: Bật DNS cho VPC
@@ -77,7 +77,7 @@ Dùng **VPC only** để thực hiện riêng từng thành phần theo mục l�
 4. Chọn **Save changes**.
 5. Kiểm tra lại phần Details để xác nhận cả hai thuộc tính đã bật.
 
-![vpc4](/images/005/vpc4.png)
+![vpc4](/FCAJ_Worklog/images/005/vpc4.png)
 
 
 ## Bước 4: Tạo subnet
@@ -97,13 +97,13 @@ Dùng **VPC only** để thực hiện riêng từng thành phần theo mục l�
 5. Thêm tag Project=SecureWebWorkshop cho subnet.
 6. Chỉ tạo **một subnet** trong bước này.
 
-![](/images/005/subnet1.png)
+![](/FCAJ_Worklog/images/005/subnet1.png)
 
 7. Chọn **Create subnet**.
 8. Mở subnet mới, kiểm tra trạng thái **Available**.
 9. Ghi **Subnet ID**, **VPC ID**, **AZ** và **CIDR** vào bảng bàn giao.
 
-![](/images/005/subnet2.png)
+![](/FCAJ_Worklog/images/005/subnet2.png)
 
 
 ## Bước 5: Kiểm tra và bàn giao

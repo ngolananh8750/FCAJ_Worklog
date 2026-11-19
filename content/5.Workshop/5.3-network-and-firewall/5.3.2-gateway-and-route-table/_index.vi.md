@@ -37,19 +37,19 @@ Sau bước này, subnet có tuyến trực tiếp đến Internet Gateway và t
 2. Điền **Name tag: igw-secure-web**.
 3. Thêm các tag dùng chung trong bảng trên.
 4. Kiểm tra thông tin rồi chọn **Create internet gateway**.
-![](/images/005/igw1.png)
+![](/FCAJ_Worklog/images/005/igw1.png)
 ## Bước 2: Gắn Internet Gateway vào VPC
 
 1. Chọn **igw-secure-web → Actions → Attach to VPC**.
-![](/images/005/igw2.png)
+![](/FCAJ_Worklog/images/005/igw2.png)
 2. Chọn **vpc-secure-web**, đối chiếu đúng VPC ID.
-![](/images/005/igw3.png)
+![](/FCAJ_Worklog/images/005/igw3.png)
 3. Chọn **Attach internet gateway**.
 4. Kiểm tra trạng thái **Attached** và VPC được gắn.
 
 Một VPC chỉ có một Internet Gateway được gắn tại một thời điểm. Nếu vpc-secure-web không xuất hiện trong danh sách, kiểm tra Region và gateway đã gắn sẵn; không tháo gateway của hệ thống khác để tiếp tục.
 
-![](/images/005/igw4.png)
+![](/FCAJ_Worklog/images/005/igw4.png)
 
 
 ## Bước 3: Tạo Route Table riêng
@@ -63,7 +63,7 @@ Một VPC chỉ có một Internet Gateway được gắn tại một thời đi
 
 Giữ nguyên main route table mặc định. Không chọn thao tác thay thế main route table; chỉ liên kết subnet của workshop với bảng mới.
 
-![](/images/005/rtb1.png)
+![](/FCAJ_Worklog/images/005/rtb1.png)
 
 
 ## Bước 4: Thêm tuyến Internet
@@ -81,7 +81,7 @@ Giữ nguyên main route table mặc định. Không chọn thao tác thay thế
 
 **0.0.0.0/0 ở đây là đích định tuyến**, không phải quy tắc cho phép mọi cổng vào EC2. Không nhầm với việc mở SSH cho toàn Internet. Không chọn NAT Gateway, không thêm tuyến IPv6 trong phạm vi bài thực hành IPv4 này.
 
-![](/images/005/rtb2.png)
+![](/FCAJ_Worklog/images/005/rtb2.png)
 
 
 ## Bước 5: Liên kết Route Table với subnet
@@ -94,7 +94,7 @@ Giữ nguyên main route table mặc định. Không chọn thao tác thay thế
 
 Chỉ thêm route vào một bảng chưa được subnet sử dụng sẽ không thay đổi đường đi của subnet. Không chỉ nhìn tên bảng; phải kiểm tra ID và liên kết.
 
-![](/images/005/rtb3.png)
+![](/FCAJ_Worklog/images/005/rtb3.png)
 
 
 

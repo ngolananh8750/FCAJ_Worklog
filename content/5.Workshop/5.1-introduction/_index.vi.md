@@ -56,7 +56,7 @@ Hệ thống sử dụng bốn dịch vụ chính, mỗi dịch vụ đảm nh�
 
 Hệ thống được triển khai trong một AWS Region. EC2 nằm trong Public Subnet thuộc VPC; S3 và CloudWatch là các dịch vụ được EC2 truy cập, không nằm bên trong Public Subnet.
 
-![Sơ đồ kiến trúc](/images/5/so_do_kien_truc_aws.drawio.png/?featherlight=false&width=90pc)
+![Sơ đồ kiến trúc](/FCAJ_Worklog/images/5/so_do_kien_truc_aws.drawio.png?featherlight=false&width=90pc)
 
 **Các thành phần và kết nối:**
 

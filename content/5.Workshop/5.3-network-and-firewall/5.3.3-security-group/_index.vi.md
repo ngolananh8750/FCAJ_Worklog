@@ -54,7 +54,7 @@ Cho phép 80 để thử Nginx và chuyển hướng HTTPS, giới hạn SSH và
 5. Tạm giữ phần inbound trống và outbound mặc định; chọn **Create security group**. Các quy tắc inbound sẽ được bổ sung ngay ở bước tiếp theo.
 6. Ghi lại Security Group ID có dạng `sg-...`.
 
-![](/images/005/sg1.png)
+![](/FCAJ_Worklog/images/005/sg1.png)
 
 
 ## Bước 3: Cấu hình inbound rules
@@ -69,9 +69,9 @@ Cho phép 80 để thử Nginx và chuyển hướng HTTPS, giới hạn SSH và
 
 Nếu trình duyệt và SSH đi qua hai VPN/proxy khác nhau, My IP có thể không trùng địa chỉ nguồn SSH. Xác nhận địa chỉ Internet của đường kết nối SSH. Khi IP quản trị thay đổi, cập nhật quy tắc /32 và xóa địa chỉ cũ không còn sử dụng.
 
-![](/images/005/sg2.png)
+![](/FCAJ_Worklog/images/005/sg2.png)
 
-![](/images/005/sg4.png)
+![](/FCAJ_Worklog/images/005/sg4.png)
 
 
 ## Bước 4: Kiểm tra outbound rules
@@ -88,7 +88,7 @@ Workshop giữ quy tắc outbound IPv4 mặc định để EC2 có thể tải g
 
 Đây là lựa chọn đơn giản cho bài lab, chưa giới hạn chặt lưu lượng đi ra. Cho phép outbound không mở thêm cổng inbound và không cấp quyền đọc/ghi S3. Quyền dữ liệu sẽ do IAM Role và bucket policy kiểm soát. S3 Gateway Endpoint được tạo ở 5.3.5; Security Group không thay thế cấu hình định tuyến.
 
-![](/images/005/sg3.png)
+![](/FCAJ_Worklog/images/005/sg3.png)
 
 
 ## Bước 5: Kiểm tra và bàn giao

@@ -88,7 +88,7 @@ Follow this order. Section 5.4.3 prepares the application; complete HTTPS in 5.4
 | Data integration | Upload/download work after completing the bucket and permissions in 5.5 |
 | Handover | Instance ID, access address, role/profile, and log location; no secrets in public documentation |
 
-![](/images/54/ec2tong.png)
+![](/FCAJ_Worklog/images/54/ec2tong.png)
 
 Detailed screenshots belong in the individual subsections. Keep the lab to one EC2 instance, track usage time, and clean up in 5.8. Do not assume EC2, EBS, and public IPv4 addresses are all free.
 

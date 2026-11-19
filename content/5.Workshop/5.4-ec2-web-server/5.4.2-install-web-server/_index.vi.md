@@ -33,7 +33,7 @@ Xác nhận user ec2-user và Amazon Linux 2023. Lệnh upgrade cập nhật the
 
 Nếu quá trình cập nhật yêu cầu khởi động lại, chạy `sudo reboot`, chờ máy sẵn sàng rồi kết nối SSH lại. Reboot làm ngắt phiên SSH; không đồng nghĩa phải tạo EC2 mới.
 
-![](/images/54/inx1.png)
+![](/FCAJ_Worklog/images/54/inx1.png)
 
 
 ## Bước 2: Cài Nginx
@@ -48,7 +48,7 @@ Kết quả phải có phiên bản Nginx và tên gói đã cài. Ghi phiên b�
 
 Bài này chỉ cài máy chủ Nginx. Runtime và thư viện ứng dụng sẽ được cài theo mã nguồn ở 5.4.3, tránh cài nhiều stack không dùng đến.
 
-![](/images/54/inx2.png)
+![](/FCAJ_Worklog/images/54/inx2.png)
 
 
 ## Bước 3: Kiểm tra cấu hình và chạy dịch vụ
@@ -70,7 +70,7 @@ Kết quả mong đợi: **active** và **enabled**. Active cho biết dịch v�
 
 Nếu nginx -t báo lỗi, sửa đúng file/dòng được chỉ ra trước khi khởi động hoặc reload. Không bỏ qua lỗi để tiếp tục.
 
-![](/images/54/inx3.png)
+![](/FCAJ_Worklog/images/54/inx3.png)
 
 
 ## Bước 4: Kiểm tra HTTP ngay trên EC2
@@ -85,7 +85,7 @@ Với cấu hình mặc định của gói, mong đợi **HTTP 200**, nội dung
 
 HTTP ở đây chỉ dùng để kiểm tra máy chủ cục bộ. Chưa có TLS nên truy cập https://PUBLIC_IPV4 chưa thành công là bình thường. Việc curl localhost thành công cũng chưa chứng minh người dùng Internet truy cập được website.
 
-![](/images/54/inx4.png)
+![](/FCAJ_Worklog/images/54/inx4.png)
 
 
 ## Bước 5: Xem trang mặc định qua đường hầm SSH
@@ -162,6 +162,3 @@ Tiếp tục: [5.4.3. Triển khai đăng nhập và chức năng tải lên, t�
 - [Nginx beginner guide](https://nginx.org/en/docs/beginners_guide.html)
 - [Nginx command-line parameters](https://nginx.org/en/docs/switches.html)
 
-**Kiểm tra từ máy cá nhân:** Mở `http://PUBLIC_IPV4/` để thấy trang mặc định Nginx qua cổng 80. Chạy kiểm thử 80/81 ở 5.3.6. Chỉ đăng nhập sau khi triển khai HTTPS ở 5.4.4.
-
-<!-- 📸 Chèn ảnh trang Nginx truy cập qua Public IPv4. -->

@@ -38,7 +38,7 @@ Cấu hình trên là lựa chọn triển khai cho các phần tiếp theo, s�
 
 Kiểm tra chi phí và quyền lợi tài khoản trước khi khởi tạo; không mặc định nhãn Free tier đồng nghĩa toàn bộ bài lab miễn phí. Nếu tài khoản không cho phép t3.micro, nhờ quản trị thống nhất loại máy x86_64 thay thế trước khi tiếp tục.
 
-![](/images/54/ec21.png)
+![](/FCAJ_Worklog/images/54/ec21.png)
 
 
 
@@ -52,7 +52,7 @@ Kiểm tra chi phí và quyền lợi tài khoản trước khi khởi tạo; kh
 
 Nếu key pair đã tồn tại, chỉ dùng lại khi đang giữ đúng private key. AWS không cho tải lại private key của key pair đã tạo. Không chọn tiếp tục không có key pair với phương thức SSH của bài này. Không đưa file .pem lên Git, website workshop hoặc ảnh chụp.
 
-![](/images/54/ec23.png)
+![](/FCAJ_Worklog/images/54/ec23.png)
 
 
 ## Bước 3: Chọn mạng và Security Group
@@ -69,7 +69,7 @@ Trong **Network settings → Edit**, điền:
 
 Đối chiếu các ID thực tế, không chỉ tên. Không tạo Security Group mới hoặc mở SSH cho 0.0.0.0/0. Không cần Elastic IP cho bước thực hành này.
 
-![](/images/54/ec22.png)
+![](/FCAJ_Worklog/images/54/ec22.png)
 
 
 ## Bước 4: Cấu hình lưu trữ và bảo mật
@@ -83,10 +83,10 @@ Trong **Network settings → Edit**, điền:
 
 Nếu không thấy instance profile, nhờ quản trị kiểm tra profile, role và quyền liệt kê/PassRole; không gắn một role có quyền rộng tùy ý. Quyền S3 cụ thể sẽ được hoàn thiện ở 5.5.3.
 
-![](/images/54/ec24.png)
+![](/FCAJ_Worklog/images/54/ec24.png)
 
 
-![](/images/54/ec26.png)
+![](/FCAJ_Worklog/images/54/ec26.png)
 
 
 ## Bước 5: Khởi tạo và kiểm tra instance
@@ -99,7 +99,7 @@ Nếu không thấy instance profile, nhờ quản trị kiểm tra profile, rol
 
 Nếu chưa có Public IPv4, kiểm tra cấu hình launch; không dùng Private IPv4 để SSH trực tiếp từ Internet. Chưa thử mở website vì chưa cài dịch vụ web.
 
-![](/images/54/ec27.png)
+![](/FCAJ_Worklog/images/54/ec27.png)
 
 
 ## Bước 6: Kết nối SSH từ máy cá nhân
@@ -133,7 +133,7 @@ hostname
 
 Kết quả cần có: user **ec2-user**, hệ điều hành **Amazon Linux 2023**. Không in thông tin xác thực từ metadata để chụp ảnh. Gõ `exit` khi muốn thoát SSH.
 
-![](/images/54/ec28.png)
+![](/FCAJ_Worklog/images/54/ec28.png)
 
 
 ## Lỗi thường gặp

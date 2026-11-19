@@ -11,6 +11,6 @@ pre: "<b>5.6.4. </b>"
 4. Mở **CloudWatch → All alarms → workshop-web-01-cpu-high → Edit**. Thêm notification khi **In alarm** tới topic trên và lưu. Giữ điều kiện Average > 80%, 5 phút, 2/2. Nếu topic đã có policy tùy chỉnh, kiểm tra quyền CloudWatch publish.
 5. Thực hiện bài thử tải có giới hạn ở 5.6.2. Đối chiếu timestamp trên dashboard, history và email. Nếu alarm đã ở ALARM trước khi gắn SNS, chờ về OK rồi thử lại để có chuyển trạng thái mới.
 
-<!-- 📸 Chèn dashboard, subscription Confirmed, alarm action và email đã che địa chỉ. -->
+
 
 [CloudWatch và SNS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Notify_Users_Alarm_Changes.html)

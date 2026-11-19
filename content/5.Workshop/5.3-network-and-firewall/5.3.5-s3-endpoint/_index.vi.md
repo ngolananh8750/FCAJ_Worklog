@@ -42,7 +42,7 @@ Gateway Endpoint không có phí sử dụng bổ sung; các chi phí S3 và tà
 4. Lọc **Type = Gateway**, tìm và chọn **com.amazonaws.ap-southeast-1.s3**.
 5. Kiểm tra cột Type là **Gateway**. Không chọn Interface hoặc dịch vụ s3express.
 
-![](/images/005/ep1.png)
+![](/FCAJ_Worklog/images/005/ep1.png)
 
 
 ## Bước 2: Chọn VPC và Route Table
@@ -54,7 +54,7 @@ Gateway Endpoint không có phí sử dụng bổ sung; các chi phí S3 và tà
 
 Gateway Endpoint dùng liên kết Route Table; không yêu cầu chọn Security Group riêng cho endpoint như Interface Endpoint. Nếu màn hình yêu cầu chọn subnet/AZ và Security Group cho endpoint, kiểm tra lại Type.
 
-![](/images/005/ep2.png)
+![](/FCAJ_Worklog/images/005/ep2.png)
 
 
 ## Bước 3: Chọn policy và tạo endpoint
@@ -68,10 +68,10 @@ Full access ở đây là chính sách của đường truy cập endpoint, **kh
 
 Nếu siết endpoint policy về duy nhất bucket tài liệu sau này, cần kiểm tra các phụ thuộc cài đặt trước. Không dán policy chứa tên bucket hoặc ARN mẫu chưa thay thế. Cũng chưa thêm bucket policy bắt buộc aws:SourceVpce ở bước này, vì thao tác đó có thể chặn truy cập quản trị qua Console ngoài endpoint.
 
-![](/images/005/ep3.png)
+![](/FCAJ_Worklog/images/005/ep3.png)
 
 
-![](/images/005/ep4.png)
+![](/FCAJ_Worklog/images/005/ep4.png)
 
 
 ## Bước 4: Kiểm tra tuyến S3 được thêm tự động
@@ -88,7 +88,7 @@ AWS tự thêm tuyến prefix list khi liên kết endpoint với Route Table. K
 
 Nếu chưa thấy tuyến S3, mở endpoint → **Route tables**, kiểm tra liên kết; dùng **Actions → Manage route tables** để chọn đúng rtb-web-public và lưu. Không chỉnh sửa trực tiếp tuyến endpoint do AWS quản lý.
 
-![](/images/005/ep5.png)
+![](/FCAJ_Worklog/images/005/ep5.png)
 
 
 ## Bước 5: Kiểm tra firewall và bàn giao

@@ -48,7 +48,7 @@ sudo chmod 644 /etc/nginx/tls/portal.crt
 sudo openssl x509 -in /etc/nginx/tls/portal.crt -noout -dates -fingerprint -sha256 -ext subjectAltName
 ```
 
-![](/images/54/https1.png)
+![](/FCAJ_Worklog/images/54/https1.png)
 
 ## Bước 2: Cấu hình HTTPS và reverse proxy
 
@@ -104,7 +104,7 @@ sudo nginx -t && sudo systemctl reload nginx
 sudo ss -lntp
 ```
 
-![](/images/54/https2.png)
+![](/FCAJ_Worklog/images/54/https2.png)
 
 ## Bước 3: Xác minh TLS ngay trên EC2
 
@@ -120,7 +120,7 @@ sudo curl --noproxy '*' --cacert /etc/nginx/tls/portal.crt \
   --resolve "$PORTAL_IP:443:127.0.0.1" -I "https://$PORTAL_IP/"
 ```
 
-![](/images/54/https3.png)
+![](/FCAJ_Worklog/images/54/https3.png)
 
 ## Bước 4: Kiểm tra từ máy cá nhân
 
@@ -154,7 +154,7 @@ Mở Developer Tools (F12) → Application/Storage → Cookies. Cookie **portal_
 
 Đăng nhập bằng tài khoản website đã tạo, không dùng IAM user. Nếu sau login hiện 503 Storage unavailable, kiểm tra quyền S3 ở 5.5; không tắt Secure hoặc sửa TLS để xử lý lỗi dữ liệu.
 
-![](/images/54/https4.png)
+![](/FCAJ_Worklog/images/54/https4.png)
 
 ## Bước 6: Kiểm tra vòng đời phiên
 
